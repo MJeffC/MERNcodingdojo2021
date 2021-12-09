@@ -17,8 +17,16 @@ const findAllProducts = (req, res) => {
         .catch((err) => res.status(400).json({ errMessage: err}));
 };
 
+const getOneProduct = (req, res) => {
+    const { params } = req;
+    Product.findOne({ _id: params.id })
+        .then(( oneProduct ) => res.json( oneProduct ))
+        .catch(( err ) => res.status(400).json({ errMessage: err }));
+}
+
 module.exports = {
     healthcheckController,
     createProduct,
     findAllProducts,
+    getOneProduct,
 }
