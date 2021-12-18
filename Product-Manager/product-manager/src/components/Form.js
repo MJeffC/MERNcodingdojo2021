@@ -55,7 +55,7 @@ const Form = () => {
             })
             .catch((err) => setErrors(err.response));
 
-    }
+    };
 
     return (
         <div className="container">
