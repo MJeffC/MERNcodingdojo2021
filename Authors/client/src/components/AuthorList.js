@@ -33,7 +33,6 @@ const AuthorList = () => {
                 navigate(`/${author_id}/edit`);
             })
             .catch((err) => setErrors(err.response));
-
     };
 
     return (
