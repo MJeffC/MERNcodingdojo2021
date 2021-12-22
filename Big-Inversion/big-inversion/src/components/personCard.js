@@ -1,13 +1,27 @@
 import React, { Component } from "react";
 
 class PersonCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            age: this.props.age,
+            firstName: this.props.firstName,
+            lastName: this.props.lastName,
+            hairColor: this.props.hairColor
+        };
+    }
+
+    BirthdayButton = () => {
+        this.setState({ age: this.state.age + 1});
+    }
+    
     render() {
-        const { lastName, firstName, age, hairColor } = this.props;
         return (
             <div>
-                <h1>{lastName}, {firstName}</h1>
-                <h4>Age: {age}</h4>
-                <h4>Hair Color: {hairColor}</h4>
+                <h1>{this.state.lastName}, {this.state.firstName}</h1>
+                <h4>Age: {this.state.age}</h4>
+                <h4>Hair Color: {this.state.hairColor}</h4>
+                <button onClick={this.BirthdayButton}>Birthday Button for {this.state.firstName} {this.state.lastName}</button>
             </div>
         );
     }
